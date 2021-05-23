@@ -1,0 +1,419 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="de" class="js csstransforms3d sb-init sb-scroll-lock"><head>
+    <title>Jetzt anfragen |BusyBee Catering Berlin</title></head>
+<body id="top" class="">
+
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+    <link rel="canonical" href="https://www.busybee-catering.de/jetzt-anfragen">
+
+{% include 'pages/head.html' %}
+
+    <div id="sb-site" class="JetztAnfragen" style="min-height: 916px;">        <header id="header">
+            <div id="logo">
+                <a href="/"><img src="{% static 'img/logo.png' %}" alt="BusyBee Catering Berlin"></a>
+            </div>
+            <div id="navbar">
+<ul class="navigation">            <li class="">
+                <a href="/">BEEourGuest
+                </a>
+            </li>            <li class="">
+                <a href="/busy-bee-world">Busy Bee World
+                </a>
+            </li>            <li class="active">
+                <a href="/jetzt-anfragen">Jetzt anfragen
+                </a>
+            </li></ul>
+
+                <span class="panel-activation sb-toggle-left navbar-left menu-btn fa fa-bars"></span>
+            </div>
+        </header>        <section id="body" class=""><h1>Anfrage Eventcatering</h1>
+<p>Um Ihnen ein aussagekräftiges  Angebot  zu unterbreiten, bitten wir Sie, so viele Angaben, wie möglich zu machen:</p>
+<form name="anfrage" action="/jetzt-anfragen" method="POST" id="anfrage">    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Firma                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[firma]" value="" type="text" autofocus="autofocus">                        </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Anrede                    </label>
+                </div>            <div class="form-data" data-grav-selectize="[]" data-grav-field="select" data-grav-disabled="true" data-grav-default="null">    <div class="form-select-wrapper">
+        <select name="data[anrede]">                ----                <option value="1">Frau</option>                <option value="2">Herr</option>        </select>
+    </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Name                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[name]" value="" type="text">                        </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Straße                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[straße]" value="" type="text">                        </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">PLZ                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[plz]" value="" type="text">                        </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Ort                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[ort]" value="" type="text">                        </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Telefon                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[telefon]" value="" type="text">                        </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Fax                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[fax]" value="" type="text">                        </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Mobil                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[mobil]" value="" type="text">                        </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">E-Mail                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[email]" value="" type="text">                        </div>
+            </div>    </div><div class="form-spacer">        <p>        </p>    <hr></div>
+<div class="form-spacer">        <h3>Daten zum Event        </h3>        <p>        </p></div>
+    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Veranstaltungsdatum ( TT.MM.JJJJ )                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[veranstaltungsdatum]" value="" type="text" placeholder="Bitte in der Form TT.MM.JJJJ eingeben." novalidate="novalidate">                        </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Anlass                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[anlass]" value="" type="text">                        </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Veranstaltungsort                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[veranstaltungsort]" value="" type="text">                        </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Personenzahl                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[personenzahl]" value="" type="text">                        </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Veranstaltungsbeginn                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[veranstaltungsbeginn]" value="" type="text">                        </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Veranstaltungsende                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[veranstaltungsende]" value="" type="text">                        </div>
+            </div>    </div><div class="form-spacer">        <p>        </p>    <hr></div>
+<div class="form-spacer">        <h3>Verpflegungswünsche        </h3>        <p>        </p></div>
+    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Fingerfood                    </label>
+                </div>            <div class="form-data" data-grav-selectize="[]" data-grav-field="select" data-grav-disabled="true" data-grav-default="null">    <div class="form-select-wrapper">
+        <select name="data[fingerfood]">                ----                <option value="1">Kalt</option>                <option value="2">Kalt-Warm</option>                <option value="3">Gabelbissen</option>        </select>
+    </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Fingerfood Extra                    </label>
+                </div>            <div class="form-data" data-grav-field="checkboxes" data-grav-disabled="true" data-grav-default="null" data-grav-keys="false" data-grav-field-name="data[fingerfood_extra]">
+        <span class="checkboxes">
+            <input type="checkbox" id="fingerfood_extra-0" value="0" name="data[fingerfood_extra][fingerfood_extra-0]">
+            <label style="display: inline" for="fingerfood_extra-0">Schnittchen            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="fingerfood_extra-1" value="1" name="data[fingerfood_extra][fingerfood_extra-1]">
+            <label style="display: inline" for="fingerfood_extra-1">Canapes            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="fingerfood_extra-2" value="2" name="data[fingerfood_extra][fingerfood_extra-2]">
+            <label style="display: inline" for="fingerfood_extra-2">Halbes Brötchen            </label>
+        </span>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Office Lunch                    </label>
+                </div>            <div class="form-data" data-grav-selectize="[]" data-grav-field="select" data-grav-disabled="true" data-grav-default="null">    <div class="form-select-wrapper">
+        <select name="data[office_lunch]">                ----                <option value="1">Kaltes Fingerfood</option>                <option value="2">Suppe + Fingerfood</option>                <option value="3">Salat + Hauptgang + Dessert</option>        </select>
+    </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Buffet                    </label>
+                </div>            <div class="form-data" data-grav-selectize="[]" data-grav-field="select" data-grav-disabled="true" data-grav-default="null">    <div class="form-select-wrapper">
+        <select name="data[buffet]">                ----                <option value="1">Kalt</option>                <option value="2">Warm</option>                <option value="3">Kalt-Warm</option>        </select>
+    </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Menü                    </label>
+                </div>            <div class="form-data" data-grav-selectize="[]" data-grav-field="select" data-grav-disabled="true" data-grav-default="null">    <div class="form-select-wrapper">
+        <select name="data[menue]">                ----                <option value="1">3 Gänge</option>                <option value="2">4 Gänge</option>                <option value="3">5-6 Gänge</option>        </select>
+    </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Sonstiges                    </label>
+                </div>            <div class="form-data" data-grav-field="textarea" data-grav-disabled="true" data-grav-default="null">    <div class="form-textarea-wrapper">
+        <textarea name="data[verpflegung_sonstiges]" class="input"></textarea>
+    </div>
+            </div>    </div><div class="form-spacer">        <p>        </p>    <hr></div>
+<div class="form-spacer">        <h3>Speisenwünsche        </h3>        <p>        </p></div>
+    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Speisen                    </label>
+                </div>            <div class="form-data" data-grav-selectize="[]" data-grav-field="select" data-grav-disabled="true" data-grav-default="null">    <div class="form-select-wrapper">
+        <select name="data[speisen]">                ----                <option value="1">Rustikal / Deutsch</option>                <option value="2">Mediterran</option>                <option value="3">International</option>        </select>
+    </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Speisen Extra                    </label>
+                </div>            <div class="form-data" data-grav-field="checkboxes" data-grav-disabled="true" data-grav-default="null" data-grav-keys="false" data-grav-field-name="data[speisen_extra]">
+        <span class="checkboxes">
+            <input type="checkbox" id="speisen_extra-0" value="0" name="data[speisen_extra][speisen_extra-0]">
+            <label style="display: inline" for="speisen_extra-0">Vegetarisch            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="speisen_extra-1" value="1" name="data[speisen_extra][speisen_extra-1]">
+            <label style="display: inline" for="speisen_extra-1">Bio            </label>
+        </span>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Sonstiges                    </label>
+                </div>            <div class="form-data" data-grav-field="textarea" data-grav-disabled="true" data-grav-default="null">    <div class="form-textarea-wrapper">
+        <textarea name="data[speisen_sonstiges]" class="input"></textarea>
+    </div>
+            </div>    </div><div class="form-spacer">        <p>        </p>    <hr></div>
+<div class="form-spacer">        <h3>Getränkewünsche        </h3>        <p>        </p></div>
+    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Getränke                    </label>
+                </div>            <div class="form-data" data-grav-field="radio" data-grav-disabled="true" data-grav-default="null">
+        <span class="radio">
+            <input type="radio" value="0" id="getraenke-0" name="data[getraenke]" checked="checked">
+            <label style="display: inline" class="inline" for="getraenke-0">nein</label>
+        </span>
+        <span class="radio">
+            <input type="radio" value="1" id="getraenke-1" name="data[getraenke]">
+            <label style="display: inline" class="inline" for="getraenke-1">ja</label>
+        </span>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Getränke Extra                    </label>
+                </div>            <div class="form-data" data-grav-field="checkboxes" data-grav-disabled="true" data-grav-default="null" data-grav-keys="false" data-grav-field-name="data[getraenke_extra]">
+        <span class="checkboxes">
+            <input type="checkbox" id="getraenke_extra-0" value="0" name="data[getraenke_extra][getraenke_extra-0]">
+            <label style="display: inline" for="getraenke_extra-0">Erfrischungsgetränke            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="getraenke_extra-1" value="1" name="data[getraenke_extra][getraenke_extra-1]">
+            <label style="display: inline" for="getraenke_extra-1">Alkoholische Getränke            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="getraenke_extra-2" value="2" name="data[getraenke_extra][getraenke_extra-2]">
+            <label style="display: inline" for="getraenke_extra-2">Heißgetränke            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="getraenke_extra-3" value="3" name="data[getraenke_extra][getraenke_extra-3]">
+            <label style="display: inline" for="getraenke_extra-3">Bio            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="getraenke_extra-4" value="4" name="data[getraenke_extra][getraenke_extra-4]">
+            <label style="display: inline" for="getraenke_extra-4">Fair Trade            </label>
+        </span>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Sonstiges                    </label>
+                </div>            <div class="form-data" data-grav-field="textarea" data-grav-disabled="true" data-grav-default="null">    <div class="form-textarea-wrapper">
+        <textarea name="data[getraenke_sonstiges]" class="input"></textarea>
+    </div>
+            </div>    </div><div class="form-spacer">        <p>        </p>    <hr></div>
+<div class="form-spacer">        <h3>Personalwünsche        </h3>        <p>        </p></div>
+    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Personal                    </label>
+                </div>            <div class="form-data" data-grav-field="radio" data-grav-disabled="true" data-grav-default="null">
+        <span class="radio">
+            <input type="radio" value="0" id="personal-0" name="data[personal]" checked="checked">
+            <label style="display: inline" class="inline" for="personal-0">nein</label>
+        </span>
+        <span class="radio">
+            <input type="radio" value="1" id="personal-1" name="data[personal]">
+            <label style="display: inline" class="inline" for="personal-1">ja</label>
+        </span>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Besondere Wünsche                    </label>
+                </div>            <div class="form-data" data-grav-field="textarea" data-grav-disabled="true" data-grav-default="null">    <div class="form-textarea-wrapper">
+        <textarea name="data[personal_sonstiges]" class="input"></textarea>
+    </div>
+            </div>    </div><div class="form-spacer">        <p>        </p>    <hr></div>
+<div class="form-spacer">        <h3>Ausstattung / Eventtechnik        </h3>        <p>        </p></div>
+    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Ausstattung                    </label>
+                </div>            <div class="form-data" data-grav-field="checkboxes" data-grav-disabled="true" data-grav-default="null" data-grav-keys="false" data-grav-field-name="data[ausstattung]">
+        <span class="checkboxes">
+            <input type="checkbox" id="ausstattung-0" value="0" name="data[ausstattung][ausstattung-0]">
+            <label style="display: inline" for="ausstattung-0">Geschirr / Besteck            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="ausstattung-1" value="1" name="data[ausstattung][ausstattung-1]">
+            <label style="display: inline" for="ausstattung-1">Gläser            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="ausstattung-2" value="2" name="data[ausstattung][ausstattung-2]">
+            <label style="display: inline" for="ausstattung-2">Buffetbereitstellung            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="ausstattung-3" value="3" name="data[ausstattung][ausstattung-3]">
+            <label style="display: inline" for="ausstattung-3">Tischwäsche            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="ausstattung-4" value="4" name="data[ausstattung][ausstattung-4]">
+            <label style="display: inline" for="ausstattung-4">Tische / Bestuhlung            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="ausstattung-5" value="5" name="data[ausstattung][ausstattung-5]">
+            <label style="display: inline" for="ausstattung-5">Blumen            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="ausstattung-6" value="6" name="data[ausstattung][ausstattung-6]">
+            <label style="display: inline" for="ausstattung-6">Dekoration            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="ausstattung-7" value="7" name="data[ausstattung][ausstattung-7]">
+            <label style="display: inline" for="ausstattung-7">Zelte            </label>
+        </span>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Sonstiges                    </label>
+                </div>            <div class="form-data" data-grav-field="textarea" data-grav-disabled="true" data-grav-default="null">    <div class="form-textarea-wrapper">
+        <textarea name="data[ausstattung_sonstiges]" class="input"></textarea>
+    </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Budget netto für Speisen pro Person                    </label>
+                </div>            <div class="form-data" data-grav-selectize="[]" data-grav-field="select" data-grav-disabled="true" data-grav-default="null">    <div class="form-select-wrapper">
+        <select name="data[budget]">                ----                <option value="1">10,00 - 15,00 Euro</option>                <option value="2">15,01 - 20,00 Euro</option>                <option value="3">20,01 - 25,00 Euro</option>                <option value="4">ab 25,00 Euro</option>        </select>
+    </div>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Gesamtbudget netto                    </label>
+                </div>            <div class="form-data" data-grav-field="text" data-grav-disabled="true" data-grav-default="null">                        <div class="form-input-wrapper">                            <input name="data[budget_gesamt]" value="" type="text">                        </div>
+            </div>    </div><div class="form-spacer">        <p>        </p>    <hr></div>
+<div class="form-spacer">        <h3>Sonstige Informationen        </h3>        <p>        </p></div>
+    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Ich wünsche die Zusendung des Angebots per                    </label>
+                </div>            <div class="form-data" data-grav-field="checkboxes" data-grav-disabled="true" data-grav-default="null" data-grav-keys="false" data-grav-field-name="data[zusendung_angebot]">
+        <span class="checkboxes">
+            <input type="checkbox" id="zusendung_angebot-0" value="0" name="data[zusendung_angebot][zusendung_angebot-0]">
+            <label style="display: inline" for="zusendung_angebot-0">E-Mail            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="zusendung_angebot-1" value="1" name="data[zusendung_angebot][zusendung_angebot-1]">
+            <label style="display: inline" for="zusendung_angebot-1">Post            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="zusendung_angebot-2" value="2" name="data[zusendung_angebot][zusendung_angebot-2]">
+            <label style="display: inline" for="zusendung_angebot-2">Fax            </label>
+        </span>
+            </div>    </div>    <div class="form-field">                <div class="form-label">
+                    <label class="inline">Wie sind Sie zu uns gekommen?                    </label>
+                </div>            <div class="form-data" data-grav-field="checkboxes" data-grav-disabled="true" data-grav-default="null" data-grav-keys="false" data-grav-field-name="data[gefunden]">
+        <span class="checkboxes">
+            <input type="checkbox" id="gefunden-0" value="0" name="data[gefunden][gefunden-0]">
+            <label style="display: inline" for="gefunden-0">Webseite            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="gefunden-1" value="1" name="data[gefunden][gefunden-1]">
+            <label style="display: inline" for="gefunden-1">Suchmaschine            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="gefunden-2" value="2" name="data[gefunden][gefunden-2]">
+            <label style="display: inline" for="gefunden-2">Empfehlung            </label>
+        </span>
+        <span class="checkboxes">
+            <input type="checkbox" id="gefunden-3" value="3" name="data[gefunden][gefunden-3]">
+            <label style="display: inline" for="gefunden-3">Kunde / Kundin            </label>
+        </span>
+            </div>    </div><div class="form-spacer">        <p>        </p>    <hr></div>
+<input type="hidden" name="__form-name__" value="anfrage">  <div class="buttons">          <button class="button" type="submit">Absenden
+          </button>          <button class="button" type="reset">Zurücksetzen
+          </button>  </div><input type="hidden" name="form-nonce" value="b7435470412ecb60a41a74534111411c">
+</form>
+<ul id="hexGrid">
+  <li class="hex">
+    <div class="hexIn">
+      <a class="hexLink" href="/inspiration">
+        <img src="{% static 'img/inspiration.jpg' %}">
+        <h6>Inspiration</h6>
+        <p>— view —</p>
+      </a>
+    </div>
+  </li>
+  <li class="hex">
+    <div class="hexIn">
+      <a class="hexLink" href="/fingerfood">
+        <img src="{% static 'img/ffood.jpg' %}">
+        <h6>Fingerfood</h6>
+        <p>— view —</p>
+      </a>
+    </div>
+  </li>
+  <li class="hex">
+    <div class="hexIn">
+      <a class="hexLink" href="/buffet-menue">
+        <img src="{% static 'img/buffet.jpg' %}">
+        <h6>Buffet &amp; Menü</h6>
+        <p>— view —</p>
+      </a>
+    </div>
+  </li> 
+  <li class="hex">
+    <div class="hexIn">
+      <a class="hexLink" href="/busy-bee-world#unser-team">
+        <img src="{% static 'img/team.jpg' %}">
+        <h6>Unser Team</h6>
+        <p>— view —</p>
+      </a>
+    </div>
+  </li>  
+  <li class="hex">
+    <div class="hexIn">
+      <a class="hexLink" href="/event-consulting">
+        <img src="{% static 'img/event_con.jpg' %}">
+        <h6>Event Consulting</h6>
+        <p>— view —</p>
+      </a>
+    </div>
+  </li>
+  <li class="hex">
+    <div class="hexIn">
+      <a class="hexLink" href="/office-lunch">
+        <img src="{% static 'img/office_lunch.jpg' %}">
+        <h6>Office Lunch</h6>
+        <p>— view —</p>
+      </a>
+    </div>
+  </li>
+  <li class="hex">
+    <div class="hexIn">
+      <a class="hexLink" href="/getraenke">
+        <img src="{% static 'img/getraenke.jpg' %}">
+        <h6>Getränke</h6>
+        <p>— view —</p>
+      </a>
+    </div>
+  </li>
+  <li class="hex">
+    <div class="hexIn">
+      <a class="hexLink" href="/full-service">
+        <img src="{% static 'img/full_service.jpg' %}">
+        <h6>Full Service</h6>
+        <p>— view —</p>
+      </a>
+    </div>
+  </li>
+  <li class="hex">
+    <div class="hexIn">
+      <a class="hexLink" href="/bio-und-allergene-welt">
+        <img src="{% static 'img/allergene.jpg' %}">
+        <h6>Bio &amp; Allergene Welt</h6>
+        <p>— view —</p>
+      </a>
+    </div>
+  </li>
+ </ul>        </section>        <footer id="footer">
+            <div class="totop">
+                <span><a href="/jetzt-anfragen#" id="toTop"><i class="fa fa-arrow-up"></i></a></span>
+            </div>
+            <div id="footer1"><div style="text-align:center;padding-top: 2rem;">
+<p><a href="/kontakt">Kontakt</a> • <a href="/datenschutz">Datenschutz</a> • <a href="/impressum">Impressum</a> • <a href="/agb">AGB</a></p>
+</div>
+            </div>
+            <div id="footer2"><p style="font-size:0.2rem;">&nbsp;</p></div>
+        </footer>    </div>
+    <div class="sb-slidebar sb-left sb-width-thin">
+        <div id="panel">
+<ul class="navigation">            <li class="">
+                <a href="/">BEEourGuest
+                </a>
+            </li>            <li class="">
+                <a href="/busy-bee-world">Busy Bee World
+                </a>
+            </li>            <li class="active">
+                <a href="/jetzt-anfragen">Jetzt anfragen
+                </a>
+            </li></ul>
+            TODO: Formular aktivieren
+
+        </div>
+    </div>
+        <script>
+        $(function () {
+            $(document).ready(function() {
+              $.slidebars({
+                hideControlClasses: true,
+                scrollLock: true
+              });
+            });
+        });
+        </script>
+
+</body></html>
