@@ -2,7 +2,6 @@
 import os
 from pathlib import Path
 
-import raven
 from pypugjs.ext.django.compiler import enable_pug_translations
 
 from my_secrets import secrets
@@ -34,7 +33,6 @@ INSTALLED_APPS = [
     "django_extensions",
     "django_secrets",
     "post_office",
-    "raven.contrib.django.raven_compat",
 ]
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -143,13 +141,8 @@ COMPRESS_PRECOMPILERS = (("text/x-sass", "django_libsass.SassCompiler"),)
 COMPRESS_ENABLED = True
 
 
-RAVEN_CONFIG = {
-    "dsn": "https://{}@sentry.io/{}".format(
-        secrets.SENTRY_PROJECT_KEY, secrets.SENTRY_PROJECT_ID
-    ),
-    "release": raven.fetch_git_sha(os.path.dirname(os.pardir)),
-}
-
 EMAIL_OVERRIDE_ADDRESS = None
 EMAIL_FOOTER = ""
 EMAIL_BACKEND = "post_office.EmailBackend"
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
