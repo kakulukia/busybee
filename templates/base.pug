@@ -9,8 +9,7 @@ html(lang='de')
     //link(rel="shortcut icon", href="{% static 'img/favicon.ico' %}")
     title
       block title
-        | Give me a title
-    meta(name="viewport", content="initial-scale=1.0")
+        | BEEourGuest |BusyBee Catering Berlin
     link(href="https://fonts.googleapis.com/css?family=Barrio", rel="stylesheet")
 
     -compress css
@@ -19,7 +18,20 @@ html(lang='de')
 body
   #app
     header
-      block header
+      .container
+        #logo
+          a(href="https://www.busybee-catering.de/")
+            img(src="{% static 'img/logo.png' %}" alt="BusyBee Catering Berlin")
+        #navbar
+          ul.navigation
+            li.active
+              a(href="/") BEEourGuest
+            li
+              a(href="/busy-bee-world") Busy Bee World
+            li
+              a(href="/jetzt-anfragen") Jetzt anfragen
+
+        span.menu-btn
     main
       block content
     footer
@@ -35,7 +47,7 @@ body
   script(src="//unpkg.com/axios@0.18.0/dist/axios.min.js")
 
   // Buefy UI framework
-  link(rel="stylesheet", src="//unpkg.com/buefy/lib/buefy.min.css")
+  link(rel="stylesheet" href="//unpkg.com/buefy/dist/buefy.min.css")
   script(src="//unpkg.com/buefy")
   link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css")
   Vue.use(Buefy.default)
