@@ -98,17 +98,17 @@ h1+h2 {
     text-rendering: optimizeLegibility;    
 }
 #sb-site.BuffetMen h1 {
-    background-image: url('icon_23_os.png');
+    background-image: url('/static/img/icon_23_os.png');
     background-repeat: no-repeat;
     background-position: 380px 18px;
 }
 #sb-site.EventConsulting h1 {
-    background-image: url('icon_19_os.png');
+    background-image: url('/static/img/icon_19_os.png');
     background-repeat: no-repeat;
     background-position: 420px 8px;
 }
 #sb-site.BioAllergeneWelt h1 {
-    background-image: url('icon_17_os.png');
+    background-image: url('/static/img/icon_17_os.png');
     background-repeat: no-repeat;
     background-position: 510px 10px;
     padding-bottom: 1.5rem;
@@ -121,17 +121,17 @@ h1+h2 {
     margin: 0;
 }
 #sb-site.Fingerfood h1 {
-    background-image: url('icon_24_os.png');
+    background-image: url('/static/img/icon_24_os.png');
     background-repeat: no-repeat;
     background-position: 275px -5px;
 }
 #sb-site.OfficeLunch h1 {
-    background-image: url('icon_21_os.png');
+    background-image: url('/static/img/icon_21_os.png');
     background-repeat: no-repeat;
     background-position: 310px 14px;
 }
 #sb-site.GetrNke h1 {
-    background-image: url('icon_20.png');
+    background-image: url('/static/img/icon_20.png');
     background-repeat: no-repeat;
     background-position: 230px 14px;
 }
