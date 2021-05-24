@@ -41,38 +41,155 @@
 </div>
 </div>
 <div class="clr"></div>
-<div class="in_slider">
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("#ls-hr9ERJGsVk").lightSlider({
-        item:1,
-        slideMove:1,
-        slideMargin:0,
-        mode: 'fade',
-        cssEasing: 'ease',
-        easing: '',
-        speed:1500,
-        auto:true,
-        loop:true,
-        pause:3000,
-        pauseOnHover:false,
-        controls:true,
-        keyPress:true,
-        adaptiveHeight:true,
-        vertical:false,
-        verticalHeight:500,
-        pager:true,
-        gallery:false,
-        galleryMargin:15,
-        thumbMargin:5,
-        enableTouch:true,
-        enableDrag:true,
 
-    });
-  });
-</script><div id="ls-hr9ERJGsVk-wrapper" class="grav-lightslider">    <div class="lSSlideOuter "><div class="lSSlideWrapper usingCss on"><ul id="ls-hr9ERJGsVk" class="lightSlider lSFade lsGrab" style="height: 4697px; padding-bottom: 469.7%; transition-duration: 1500ms; transition-timing-function: ease;"><lidata-thumb class="lslide active"><img src="{% static 'img/bc4dd65f669fab411c01df0d9bb6f249343d4db3-bm01.jpeg' %}"><lidata-thumb><img src="{% static 'img/9b8660833d3fc1eca6427133cf1fdcbc64b9e5f1-bm02.jpeg' %}"><lidata-thumb><img src="{% static 'img/067320cb0f0b8f559c297f8b9206f18e16d262d6-bm03.jpeg' %}"><lidata-thumb><img src="{% static 'img/e9ed4b785048c8638d35503a7d3f45525ad1043c-bm04.jpeg' %}"><lidata-thumb><img src="{% static 'img/2b2465aabf0378e6a03f53c082c9a0a3e76eb45e-bm06.jpeg' %}"><lidata-thumb><img src="{% static 'img/9d19dd2b666e7bca7a798b199c09c5647413848d-bm07.jpeg' %}"><lidata-thumb><img src="{% static 'img/7240134fcb32070382b493f51c79e5f931bc4e01-bm08.jpeg' %}"></lidata-thumb></lidata-thumb></lidata-thumb></lidata-thumb></lidata-thumb></lidata-thumb></lidata-thumb></ul><div class="lSAction" style="display: none;"><a class="lSPrev"></a><a class="lSNext"></a></div></div><ul class="lSPager lSpg" style="margin-top: 15px;"><li class="active"><a href="/buffet-menue#">1</a></li></ul></div></div>
-TODO: Slideshow aktivieren
-</div>
+
+
+<section class="slideshow" id="slideshow">
+      <div class="slideshow-inner">
+        <div class="slides">
+          <div class="slide is-active ">
+            <div class="slide-content">
+              <div class="container">
+                <div class="caption">
+                  <div class="title">
+                  </div>
+                  <div class="text"></div>
+                </div>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="{% static 'img/bc4dd65f669fab411c01df0d9bb6f249343d4db3-bm01.jpeg' %}">
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-content">
+              <div class="container">
+                <div class="caption">
+                  <div class="title">
+                  </div>
+                  <div class="text"></div>
+                </div>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="{% static 'img/9b8660833d3fc1eca6427133cf1fdcbc64b9e5f1-bm02.jpeg' %}">
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-content">
+              <div class="container">
+                <div class="caption">
+                  <div class="title">
+                  </div>
+                  <div class="text"></div>
+                </div>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="{% static 'img/067320cb0f0b8f559c297f8b9206f18e16d262d6-bm03.jpeg' %}">
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-content">
+              <div class="container">
+                <div class="caption">
+                  <div class="title">
+                  </div>
+                  <div class="text"></div>
+                </div>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="{% static 'img/e9ed4b785048c8638d35503a7d3f45525ad1043c-bm04.jpeg' %}">
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-content">
+              <div class="container">
+                <div class="caption">
+                  <div class="title">
+                  </div>
+                  <div class="text"></div>
+                </div>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="{% static 'img/2b2465aabf0378e6a03f53c082c9a0a3e76eb45e-bm06.jpeg' %}">
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-content">
+              <div class="container">
+                <div class="caption">
+                  <div class="title">
+                  </div>
+                  <div class="text"></div>
+                </div>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="{% static 'img/9d19dd2b666e7bca7a798b199c09c5647413848d-bm07.jpeg' %}">
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-content">
+              <div class="container">
+                <div class="caption">
+                  <div class="title">
+                  </div>
+                  <div class="text"></div>
+                </div>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="{% static 'img/7240134fcb32070382b493f51c79e5f931bc4e01-bm08.jpeg' %}">
+            </div>
+          </div>
+        </div>
+        <div class="pagination">
+          <div class="item is-active">
+            <span class="icon">1</span>
+          </div>
+          <div class="item">
+            <span class="icon">2</span>
+          </div>
+          <div class="item">
+            <span class="icon">3</span>
+          </div>
+          <div class="item">
+            <span class="icon">4</span>
+          </div>
+          <div class="item">
+            <span class="icon">5</span>
+          </div>
+          <div class="item">
+            <span class="icon">6</span>
+          </div>
+          <div class="item">
+            <span class="icon">7</span>
+          </div>
+        </div>
+        <div class="arrows">
+          <div class="arrow prev">
+            <span class="svg svg-arrow-left">
+              <svg version="1.1" id="svg4-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M13,26c-0.256,0-0.512-0.098-0.707-0.293l-12-12c-0.391-0.391-0.391-1.023,0-1.414l12-12c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L2.414,13l11.293,11.293c0.391,0.391,0.391,1.023,0,1.414C13.512,25.902,13.256,26,13,26z"/> </svg>
+              <span class="alt sr-only"></span>
+            </span>
+          </div>
+          <div class="arrow next">
+            <span class="svg svg-arrow-right">
+              <svg version="1.1" id="svg5-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M1,0c0.256,0,0.512,0.098,0.707,0.293l12,12c0.391,0.391,0.391,1.023,0,1.414l-12,12c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414L11.586,13L0.293,1.707c-0.391-0.391-0.391-1.023,0-1.414C0.488,0.098,0.744,0,1,0z"/> </svg>
+              <span class="alt sr-only"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+{% include 'pages/slideshow.html' %}
+
+
 <hr><ul id="hexGrid">
   <li class="hex">
     <div class="hexIn">
