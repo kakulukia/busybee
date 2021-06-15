@@ -6,7 +6,6 @@
 dump.rdb
 *.orig
 
-db.sqlite3
 .venv
 static
 .direnv
