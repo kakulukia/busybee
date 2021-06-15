@@ -72,11 +72,11 @@ class User(AbstractBaseUser, BaseModel, PermissionsMixin):
 
         if not context:
             context = {}
-        context["user"] = self
-        context["base_url"] = "http://{}".format(Site.objects.get_current())
-        context["footer"] = settings.EMAIL_FOOTER
+        # context["user"] = self
+        # context["base_url"] = "http://{}".format(Site.objects.get_current())
+        # context["footer"] = settings.EMAIL_FOOTER
 
-        activate("de")
+        # activate("de")
         mail.send(
             receiver,
             settings.DEFAULT_FROM_EMAIL,

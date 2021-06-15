@@ -14,7 +14,8 @@ SITE_ID = 1
 
 DEBUG = False
 ALLOWED_HOSTS = [
-    # 'server.url.here',
+    '445a032.online-server.cloud',
+    '*.busybee-catering.de',
 ]
 INSTALLED_APPS = [
     # our own stuff
@@ -29,6 +30,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # 3rd party apps
     "axes",
+    "captcha",
     "compressor",
     "django_extensions",
     "django_secrets",
@@ -144,5 +146,12 @@ COMPRESS_ENABLED = True
 EMAIL_OVERRIDE_ADDRESS = None
 EMAIL_FOOTER = ""
 EMAIL_BACKEND = "post_office.EmailBackend"
+DEFAULT_FROM_EMAIL = "busy.bee@t-online.de"
+EMAIL_HOST = "securesmtp.t-online.de"
+EMAIL_PORT = 465
+EMAIL_HOST_USER = secrets.EMAIL_USER
+EMAIL_HOST_PASSWORD = secrets.EMAIL_PASSWORD
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

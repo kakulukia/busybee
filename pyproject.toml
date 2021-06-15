@@ -29,6 +29,9 @@ Pillow = "^8.1.2"
 libsass = "^0.20.1"
 python = "^3.9"
 Django = "^3.2.3"
+icecream = "^2.1.0"
+bleach = "^3.3.0"
+django-simple-captcha = "^0.5.14"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"

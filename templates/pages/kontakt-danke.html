@@ -5,12 +5,7 @@
 <head>
   {% include 'pages/head.html' %}
   <title>Kontakt |BusyBee Catering Berlin</title>
-  <style>
-    #id_captcha_1 {width: 100px; display: inline-block; margin: 0 0 0 20px;}
-    img.captcha {float: left;}
-    ul.errorlist {margin: 0 0 .425rem 0; list-style: none; color: #BA2121; padding: 0;}
-    label:after {content: "*"; color: #ffd400; font-size: 29px;}
-  </style>
+  <style>.danke {display: flex; padding: 3rem 0; justify-content: center; align-items: center;}</style>
 </head>
 <body id="top" class="">
 
@@ -55,13 +50,8 @@ Bürozeiten: 09:00-17:00 Uhr Montag-Freitag</p>
 </div>
 <div class="clr"></div>
 
-<form name="kontakt" action="/kontakt" method="POST" id="kontakt">
-      {{ form }}
+<div class="danke">Vielen Dank für Ihre Nachricht!</div>
 
-  <div class="buttons">          <button class="button" type="submit">Absenden
-          </button>          <button class="button" type="reset">Zurücksetzen
-          </button>  </div><input type="hidden" name="form-nonce" value="b7435470412ecb60a41a74534111411c">
-</form>
 <ul id="hexGrid">
   <li class="hex">
     <div class="hexIn">

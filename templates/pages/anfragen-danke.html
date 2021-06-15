@@ -5,12 +5,7 @@
 <head>
   {% include 'pages/head.html' %}
   <title>Kontakt |BusyBee Catering Berlin</title>
-  <style>
-    #id_captcha_1 {width: 100px; display: inline-block; margin: 0 0 0 20px;}
-    img.captcha {float: left;}
-    ul.errorlist {margin: 0 0 .425rem 0; list-style: none; color: #BA2121; padding: 0;}
-    label:after {content: "*"; color: #ffd400; font-size: 29px;}
-  </style>
+  <style>.danke {display: flex; padding: 3rem 0; justify-content: center; align-items: center;}</style>
 </head>
 <body id="top" class="">
 
@@ -33,35 +28,10 @@
 
                 <span class="panel-activation sb-toggle-left navbar-left menu-btn fa fa-bars"></span>
             </div>
-        </header>        <section id="body" class=""><h1>Kontakt</h1>
-<div class="cont-2col">
-<div class="cell-2col-l">
-<p>Busy Bee Catering GmbH<br>
-Hagenauer Straße 7<br>
-10435 Berlin<br>
-&nbsp;<br>
-Fon +49 (0)30 / 61 30 51 80<br>
-Fax     +49 (0)30 / 61 30 51 81<br>
-&nbsp;<br>
-Bürozeiten: 09:00-17:00 Uhr Montag-Freitag</p>
-</div>
+        </header>        <section id="body" class=""><h1>Anfrage Eventcatering</h1>
 
-<div class="cell-2col-r">
-  <p></p>
-  <a href="https://www.google.de/maps/place/Busy+Bee+Catering+GmbH/@52.5397281,13.4143824,17z/data=!3m2!4b1!5s0x47a84e0026129c2f:0x813d271fa85c3cb3!4m5!3m4!1s0x47a84e002607f29b:0x6c78aa0976f2ad6!8m2!3d52.5397281!4d13.4165711" target="_blank">
-  <div class="karte" style="background: url({% static 'img/karte.png' %}); height: 323px; background-size: cover;"></div></a>
-  <p></p>
-</div>
-</div>
-<div class="clr"></div>
+<div class="danke">Wir bedanken uns für Ihre Anfrage. Sie erhalten umgehend ein Angebot.</div>
 
-<form name="kontakt" action="/kontakt" method="POST" id="kontakt">
-      {{ form }}
-
-  <div class="buttons">          <button class="button" type="submit">Absenden
-          </button>          <button class="button" type="reset">Zurücksetzen
-          </button>  </div><input type="hidden" name="form-nonce" value="b7435470412ecb60a41a74534111411c">
-</form>
 <ul id="hexGrid">
   <li class="hex">
     <div class="hexIn">
