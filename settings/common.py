@@ -129,7 +129,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATICFILES_DIRS = [BASE_DIR / "assets"]
+STATICFILES_DIRS = [str(BASE_DIR / "assets")]
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
@@ -137,8 +137,8 @@ STATICFILES_FINDERS = [
 ]
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
-STATIC_ROOT = BASE_DIR / "static"
-MEDIA_ROOT = BASE_DIR / "media"
+STATIC_ROOT = str(BASE_DIR / "static")
+MEDIA_ROOT = str(BASE_DIR / "media")
 COMPRESS_PRECOMPILERS = (("text/x-sass", "django_libsass.SassCompiler"),)
 COMPRESS_ENABLED = True
 
