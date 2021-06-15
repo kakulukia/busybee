@@ -1,0 +1,24 @@
+uwsgi:
+        project: busybee
+        base: opt/www
+
+        master: true
+        processes: 5
+        enable-threads: true
+        vacuum: true
+        chmod-socket: 666
+        #plugin: python
+        die-on-term: true
+        uid: www-data
+        gid: www-data
+        thunder-lock: true
+        socket: /tmp/%(project).sock
+        chdir: /%(base)/%(project)
+        pythonpath: /%(base)/%(project)
+        home: /%(base)/%(project)/.venv/
+        #http: 0.0.0.0:8080
+        module: settings.wsgi:application
+#        umask: 660
+#        env: LANG=en_US.UTF-8
+        harakiri: 20  # respawn processes taking more than 20 seconds
+        max-requests: 5000  # respawn processes after serving 5000 requests
