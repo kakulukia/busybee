@@ -925,6 +925,14 @@ secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "cer
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
 [[package]]
+name = "uwsgi"
+version = "2.0.19.1"
+description = "The uWSGI server"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "uwsgidecorators"
 version = "1.1.0"
 description = "uwsgidecorators standalone package"
@@ -951,7 +959,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "3c1943300aa97a332243106dc373723e243120f2363d77475aba674745e47203"
+content-hash = "76bea137628a07d7bfd473036797681c0f45baee787af681551b32ebe69b1f8e"
 
 [metadata.files]
 appdirs = [
@@ -1519,6 +1527,9 @@ typed-ast = [
 urllib3 = [
     {file = "urllib3-1.26.3-py2.py3-none-any.whl", hash = "sha256:1b465e494e3e0d8939b50680403e3aedaa2bc434b7d5af64dfd3c958d7f5ae80"},
     {file = "urllib3-1.26.3.tar.gz", hash = "sha256:de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"},
+]
+uwsgi = [
+    {file = "uWSGI-2.0.19.1.tar.gz", hash = "sha256:faa85e053c0b1be4d5585b0858d3a511d2cd10201802e8676060fd0a109e5869"},
 ]
 uwsgidecorators = [
     {file = "uwsgidecorators-1.1.0.tar.gz", hash = "sha256:92693eeed4836fa3afde2954629bd9f846ea358b965fba6a00ce365cce68f976"},
