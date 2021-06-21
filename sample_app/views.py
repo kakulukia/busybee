@@ -107,7 +107,7 @@ class RequestView(TemplateView):
         # spam detection
         start = int(request.POST['form-nonce'])
         finish = int(time())
-        spam = '(SPAM?)' if finish < start + 30 else ''
+        spam = '(SPAM?)' if finish < start + 60 else ''
 
         user.email_user('anfrage', {'content': content, 'spam': spam})
         return redirect('/jetzt-anfragen-danke')
