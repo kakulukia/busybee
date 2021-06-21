@@ -1,13 +1,32 @@
 server {
+	server_name 445a032.online-server.cloud;
+	# return 301 https://$host$request_uri;
+  location / {
+    include         uwsgi_params;
+    uwsgi_pass      unix:/tmp/busybee.sock;
+    # First attempt to serve request as file, then
+    # as directory, then fall back to displaying a 404.
+    #try_files $uri $uri/ =404;
+  }
+
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/445a032.online-server.cloud/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/445a032.online-server.cloud/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+server {
+    if ($host = 445a032.online-server.cloud) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
 	listen 80 default_server;
 	listen [::]:80 default_server;
-	server_name _;
-	# return 301 https://$host$request_uri;
-    location / {
-        include         uwsgi_params;
-        uwsgi_pass      unix:/tmp/busybee.sock;
-        # First attempt to serve request as file, then
-        # as directory, then fall back to displaying a 404.
-        #try_files $uri $uri/ =404;
-    }
+	server_name 445a032.online-server.cloud;
+    return 404; # managed by Certbot
+
+
 }
