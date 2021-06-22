@@ -1,7 +1,7 @@
 -load static compress
 
 !!!5
-html(lang='de')
+html.js.csstransforms3d.sb-init.sb-scroll-lock(lang='de')
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -9,34 +9,126 @@ html(lang='de')
     //link(rel="shortcut icon", href="{% static 'img/favicon.ico' %}")
     title
       block title
-        | BEEourGuest |BusyBee Catering Berlin
+        | | BusyBee Catering Berlin
     link(href="https://fonts.googleapis.com/css?family=Barrio", rel="stylesheet")
-
+    {% include 'pages/head.html' %}
+    block extra_head
     -compress css
       link(rel='stylesheet', type='text/x-sass', href='{% static "sass/styles.sass" %}')
 
-body
+body#top
   #app
-    header
-      .container
+    div#sb-site.AGB(style="min-height: 916px;")
+      header#header
         #logo
-          a(href="https://www.busybee-catering.de/")
+          a(href="/")
             img(src="{% static 'img/logo.png' %}" alt="BusyBee Catering Berlin")
         #navbar
           ul.navigation
-            li.active
+            li
               a(href="/") BEEourGuest
             li
               a(href="/busy-bee-world") Busy Bee World
             li
               a(href="/jetzt-anfragen") Jetzt anfragen
 
-        span.menu-btn
-    main
-      block content
-    footer
-      block footer
+          span.panel-activation.sb-toggle-left.navbar-left.menu-btn.fa.fa-bars
 
+      section#body
+        block content
+        hr
+        ul#hexGrid
+          li.hex
+            .hexIn
+              a.hexLink(href="/inspiration")
+                img(src="{% static 'img/inspiration.jpg' %}")
+                h6 Inspiration
+                p — view —
+          li.hex
+            .hexIn
+              a.hexLink(href="/fingerfood")
+                img(src="{% static 'img/ffood.jpg' %}")
+                h6 Fingerfood
+                p — view —
+          li.hex
+            .hexIn
+              a.hexLink(href="/buffet-menue")
+                img(src="{% static 'img/buffet.jpg' %}")
+                h6 Buffet &amp; Menü
+                p — view —
+          li.hex
+            .hexIn
+              a.hexLink(href="/busy-bee-world#unser-team")
+                img(src="{% static 'img/team.jpg' %}")
+                h6 Unser Team
+                p — view —
+          li.hex
+            .hexIn
+              a.hexLink(href="/event-consulting")
+                img(src="{% static 'img/event_con.jpg' %}")
+                h6 Event Consulting
+                p — view —
+          li.hex
+            .hexIn
+              a.hexLink(href="/office-lunch")
+                img(src="{% static 'img/office_lunch.jpg' %}")
+                h6 Office Lunch
+                p — view —
+          li.hex
+            .hexIn
+              a.hexLink(href="/getraenke")
+                img(src="{% static 'img/getraenke.jpg' %}")
+                h6 Getränke
+                p — view —
+          li.hex
+            .hexIn
+              a.hexLink(href="/full-service")
+                img(src="{% static 'img/full_service.jpg' %}")
+                h6 Full Service
+                p — view —
+          li.hex
+            .hexIn
+              a.hexLink(href="/bio-und-allergene-welt")
+                img(src="{% static 'img/allergene.jpg' %}")
+                h6 Bio &amp; Allergene Welt
+                p — view —
+      footer#footer
+        .totop
+          span
+            a(href="/agb#" id="toTop")
+              i.fa.fa-arrow-up
+        #footer1
+          div(style="text-align:center;padding-top: 2rem;")
+            p
+              a(href="/kontakt") Kontakt
+              | •
+              a(href="/datenschutz") Datenschutz
+              | •
+              a(href="/impressum") Impressum
+              | •
+              a(href="/agb") AGB
+        #footer2
+          p(style="font-size:0.2rem;") &nbsp;
+
+    .sb-slidebar.sb-left.sb-width-thin
+      #panel
+        ul.navigation
+          li
+            a(href="/") BEEourGuest
+          li
+            a(href="/busy-bee-world") Busy Bee World
+          li
+            a(href="/jetzt-anfragen") Jetzt anfragen
+
+  script.
+    $(function () {
+      $(document).ready(function() {
+        $.slidebars({
+          hideControlClasses: true,
+          scrollLock: true
+        });
+      });
+    });
 
   script(src="//cdn.jsdelivr.net/npm/vue@2/dist/vue.js")
 
@@ -47,8 +139,6 @@ body
   script(src="//unpkg.com/axios@0.18.0/dist/axios.min.js")
 
   // Buefy UI framework
-  link(rel="stylesheet" href="//unpkg.com/buefy/dist/buefy.min.css")
-  script(src="//unpkg.com/buefy")
   link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css")
   Vue.use(Buefy.default)
 
