@@ -12,6 +12,11 @@ from users.models import User
 class IndexView(TemplateView):
     template_name = "pages/index.html"
 
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['guest'] = True
+        return data
+
 
 class ContactDoneView(TemplateView):
     template_name = 'pages/kontakt-danke.html'
@@ -96,6 +101,11 @@ def extract_form_data(request_data):
 class WorldView(TemplateView):
     template_name = "pages/world.html"
 
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['world'] = True
+        return data
+
 
 class RequestView(TemplateView):
     template_name = "pages/anfrage.html"
@@ -111,6 +121,11 @@ class RequestView(TemplateView):
 
         user.email_user('anfrage', {'content': content, 'spam': spam})
         return redirect('/jetzt-anfragen-danke')
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['anfrage'] = True
+        return data
 
 
 class RequestDoneView(TemplateView):

@@ -12,6 +12,18 @@ html.js.csstransforms3d.sb-init.sb-scroll-lock(lang='de')
         | | BusyBee Catering Berlin
     link(href="https://fonts.googleapis.com/css?family=Barrio", rel="stylesheet")
     {% include 'pages/head.html' %}
+    style.
+      #id_captcha_1 {width: 100px; display: inline-block; margin: 0 0 0 20px;}
+      img.captcha {float: left;}
+      ul.errorlist {margin: 0 0 .425rem 0; list-style: none; color: #BA2121; padding: 0;}
+      label:after {content: "*"; color: #ffd400; font-size: 29px;}
+      label.checkbox {display: inline-block; margin-bottom: 1.7rem;}
+      button:disabled,
+      button:hover:disabled{
+        cursor: not-allowed;
+        background-color: #cccccc;
+        color: #666666;
+      }
     block extra_head
     -compress css
       link(rel='stylesheet', type='text/x-sass', href='{% static "sass/styles.sass" %}')
@@ -25,18 +37,17 @@ body#top
             img(src="{% static 'img/logo.png' %}" alt="BusyBee Catering Berlin")
         #navbar
           ul.navigation
-            li
+            li(class={'active': guest})
               a(href="/") BEEourGuest
-            li
+            li(class={'active': world})
               a(href="/busy-bee-world") Busy Bee World
-            li
+            li(class={'active': anfrage})
               a(href="/jetzt-anfragen") Jetzt anfragen
 
           span.panel-activation.sb-toggle-left.navbar-left.menu-btn.fa.fa-bars
 
       section#body
         block content
-        hr
         ul#hexGrid
           li.hex
             .hexIn
@@ -101,11 +112,11 @@ body#top
           div(style="text-align:center;padding-top: 2rem;")
             p
               a(href="/kontakt") Kontakt
-              | •
+              | &nbsp;•&nbsp;
               a(href="/datenschutz") Datenschutz
-              | •
+              | &nbsp;•&nbsp;
               a(href="/impressum") Impressum
-              | •
+              | &nbsp;•&nbsp;
               a(href="/agb") AGB
         #footer2
           p(style="font-size:0.2rem;") &nbsp;
@@ -113,11 +124,11 @@ body#top
     .sb-slidebar.sb-left.sb-width-thin
       #panel
         ul.navigation
-          li
+          li(class={'active': guest})
             a(href="/") BEEourGuest
-          li
+          li(class={'active': world})
             a(href="/busy-bee-world") Busy Bee World
-          li
+          li(class={'active': anfrage})
             a(href="/jetzt-anfragen") Jetzt anfragen
 
   script.
