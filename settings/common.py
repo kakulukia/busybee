@@ -16,6 +16,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '445a032.online-server.cloud',
     '*.busybee-catering.de',
+    'www.busybee-catering.de',
 ]
 INSTALLED_APPS = [
     # our own stuff
