@@ -35,7 +35,7 @@ class ContactView(FormView):
     success_url = '/kontakt-danke'
 
     def form_valid(self, form):
-        user = User.data.get(email="andy@freilandkiwis.de")
+        user = User.data.get(username="EMAIL")
         content = {
             'Name': form.cleaned_data['name'],
             'E-Mail': form.cleaned_data['email'],
@@ -111,7 +111,7 @@ class RequestView(TemplateView):
     template_name = "pages/anfrage.html"
 
     def post(self, request):
-        user = User.data.get(email="andy@freilandkiwis.de")
+        user = User.data.get(username="EMAIL")
         content = extract_form_data(request.POST)
 
         # spam detection
