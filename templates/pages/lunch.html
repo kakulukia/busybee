@@ -1,34 +1,13 @@
+{% extends 'base.pug' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="de" class="js csstransforms3d sb-init sb-scroll-lock">
-<head>
-  <title>Office Lunch | BusyBee Catering Berlin</title>
+{% block title %} Office Lunch {{ block.super }}{% endblock %}
+{% block extra_head %}
   <link rel="canonical" href="https://www.busybee-catering.de/office-lunch">
-  {% include 'pages/head.html' %}
-</head>
-<body id="top" class="">
+{% endblock %}
 
-
-    <div id="sb-site" class="OfficeLunch" style="min-height: 859px;">        <header id="header">
-            <div id="logo">
-                <a href="/"><img src="{% static 'img/logo.png' %}" alt="BusyBee Catering Berlin"></a>
-            </div>
-            <div id="navbar">
-<ul class="navigation">            <li class="">
-                <a href="/">BEEourGuest
-                </a>
-            </li>            <li class="">
-                <a href="/busy-bee-world">Busy Bee World
-                </a>
-            </li>            <li class="">
-                <a href="/jetzt-anfragen">Jetzt anfragen
-                </a>
-            </li></ul>
-
-                <span class="panel-activation sb-toggle-left navbar-left menu-btn fa fa-bars"></span>
-            </div>
-        </header>        <section id="body" class=""><h1>Office Lunch</h1>
+{% block content %}
+<h1>Office Lunch</h1>
 <h2>Arbeiten mit Genuss</h2>
 <div class="cont-2col">
 <div class="cell-2col-l">
@@ -41,154 +20,130 @@
 </div>
 </div>
 <div class="clr"></div>
-<div class="in_slider">
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("#ls-oClK7W56aM").lightSlider({
-        item:1,
-        slideMove:1,
-        slideMargin:0,
-        mode: 'fade',
-        cssEasing: 'ease',
-        easing: '',
-        speed:1500,
-        auto:true,
-        loop:true,
-        pause:3000,
-        pauseOnHover:false,
-        controls:true,
-        keyPress:true,
-        adaptiveHeight:true,
-        vertical:false,
-        verticalHeight:500,
-        pager:true,
-        gallery:false,
-        galleryMargin:15,
-        thumbMargin:5,
-        enableTouch:true,
-        enableDrag:true,
 
-    });
-  });
-</script><div id="ls-oClK7W56aM-wrapper" class="grav-lightslider">    <div class="lSSlideOuter "><div class="lSSlideWrapper usingCss on"><ul id="ls-oClK7W56aM" class="lightSlider lSFade lsGrab" style="height: 4026px; padding-bottom: 336%; transition-duration: 1500ms; transition-timing-function: ease;"><lidata-thumb class="lslide active"><img src="{% static 'img/aed8e90e1803e0d41dd6b328ab1aac52d225b5c0-ol02.jpeg' %}"><lidata-thumb><img src="{% static 'img/8fedcf19257688483bfa85857cd824053f25de30-ol03.jpeg' %}"><lidata-thumb><img src="{% static 'img/20e12c822b81d0549bcb184f0cd007c0d88a8cb8-ol04.jpeg' %}"><lidata-thumb><img src="{% static 'img/1676c477a9ebe0ab184d1f1e1e199b1e594247b0-ol05.jpeg' %}"><lidata-thumb><img src="{% static 'img/6388845d1ed6c63aae632b51c48a73267c28e154-ol06.jpeg' %}"><lidata-thumb><img src="{% static 'img/fb6dee890910644cc1ef39bd5ad3a756ad92c7fe-ol07.jpeg' %}"></lidata-thumb></lidata-thumb></lidata-thumb></lidata-thumb></lidata-thumb></lidata-thumb></ul><div class="lSAction" style="display: none;"><a class="lSPrev"></a><a class="lSNext"></a></div></div><ul class="lSPager lSpg" style="margin-top: 15px;"><li class="active"><a href="/office-lunch#">1</a></li></ul></div></div>
 
-</div>
-<hr><ul id="hexGrid">
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/inspiration">
-        <img src="{% static 'img/inspiration.jpg' %}">
-        <h6>Inspiration</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/fingerfood">
-        <img src="{% static 'img/ffood.jpg' %}">
-        <h6>Fingerfood</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/buffet-menue">
-        <img src="{% static 'img/buffet.jpg' %}">
-        <h6>Buffet &amp; Menü</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/busy-bee-world#unser-team">
-        <img src="{% static 'img/team.jpg' %}">
-        <h6>Unser Team</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/event-consulting">
-        <img src="{% static 'img/event_con.jpg' %}">
-        <h6>Event Consulting</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/office-lunch">
-        <img src="{% static 'img/office_lunch.jpg' %}">
-        <h6>Office Lunch</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/getraenke">
-        <img src="{% static 'img/getraenke.jpg' %}">
-        <h6>Getränke</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/full-service">
-        <img src="{% static 'img/full_service.jpg' %}">
-        <h6>Full Service</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/bio-und-allergene-welt">
-        <img src="{% static 'img/allergene.jpg' %}">
-        <h6>Bio &amp; Allergene Welt</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
- </ul>        </section>        <footer id="footer">
-            <div class="totop">
-                <span><a href="/office-lunch#" id="toTop"><i class="fa fa-arrow-up"></i></a></span>
+<section class="slideshow" id="slideshow">
+      <div class="slideshow-inner">
+        <div class="slides">
+          <div class="slide is-active ">
+            <div class="slide-content">
+              <div class="container">
+                <div class="caption">
+                  <div class="title">
+                  </div>
+                  <div class="text"></div>
+                </div>
+              </div>
             </div>
-            <div id="footer1"><div style="text-align:center;padding-top: 2rem;">
-<p><a href="/kontakt">Kontakt</a> • <a href="/datenschutz">Datenschutz</a> • <a href="/impressum">Impressum</a> • <a href="/agb">AGB</a></p>
-</div>
+            <div class="image-container">
+              <img src="{% static 'img/aed8e90e1803e0d41dd6b328ab1aac52d225b5c0-ol02.jpeg' %}">
             </div>
-            <div id="footer2"><p style="font-size:0.2rem;">&nbsp;</p></div>
-        </footer>    </div>
-    <div class="sb-slidebar sb-left sb-width-thin">
-        <div id="panel">
-<ul class="navigation">            <li class="">
-                <a href="/">BEEourGuest
-                </a>
-            </li>            <li class="">
-                <a href="/busy-bee-world">Busy Bee World
-                </a>
-            </li>            <li class="">
-                <a href="/jetzt-anfragen">Jetzt anfragen
-                </a>
-            </li></ul>
-
+          </div>
+          <div class="slide">
+            <div class="slide-content">
+              <div class="container">
+                <div class="caption">
+                  <div class="title">
+                  </div>
+                  <div class="text"></div>
+                </div>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="{% static 'img/8fedcf19257688483bfa85857cd824053f25de30-ol03.jpeg' %}">
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-content">
+              <div class="container">
+                <div class="caption">
+                  <div class="title">
+                  </div>
+                  <div class="text"></div>
+                </div>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="{% static 'img/20e12c822b81d0549bcb184f0cd007c0d88a8cb8-ol04.jpeg' %}">
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-content">
+              <div class="container">
+                <div class="caption">
+                  <div class="title">
+                  </div>
+                  <div class="text"></div>
+                </div>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="{% static 'img/1676c477a9ebe0ab184d1f1e1e199b1e594247b0-ol05.jpeg' %}">
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-content">
+              <div class="container">
+                <div class="caption">
+                  <div class="title">
+                  </div>
+                  <div class="text"></div>
+                </div>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="{% static 'img/6388845d1ed6c63aae632b51c48a73267c28e154-ol06.jpeg' %}">
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-content">
+              <div class="container">
+                <div class="caption">
+                  <div class="title">
+                  </div>
+                  <div class="text"></div>
+                </div>
+              </div>
+            </div>
+            <div class="image-container">
+              <img src="{% static 'img/fb6dee890910644cc1ef39bd5ad3a756ad92c7fe-ol07.jpeg' %}">
+            </div>
+          </div>
         </div>
-    </div>
-        <script>
-        $(function () {
-            $(document).ready(function() {
-              $.slidebars({
-                hideControlClasses: true,
-                scrollLock: true
-              });
-            });
-        });
-        </script>
-
-</body></html>
+        <div class="pagination">
+          <div class="item is-active">
+            <span class="icon">1</span>
+          </div>
+          <div class="item">
+            <span class="icon">2</span>
+          </div>
+          <div class="item">
+            <span class="icon">3</span>
+          </div>
+          <div class="item">
+            <span class="icon">4</span>
+          </div>
+          <div class="item">
+            <span class="icon">5</span>
+          </div>
+          <div class="item">
+            <span class="icon">6</span>
+          </div>
+        </div>
+        <div class="arrows">
+          <div class="arrow prev">
+            <span class="svg svg-arrow-left">
+              <svg version="1.1" id="svg4-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M13,26c-0.256,0-0.512-0.098-0.707-0.293l-12-12c-0.391-0.391-0.391-1.023,0-1.414l12-12c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L2.414,13l11.293,11.293c0.391,0.391,0.391,1.023,0,1.414C13.512,25.902,13.256,26,13,26z"/> </svg>
+              <span class="alt sr-only"></span>
+            </span>
+          </div>
+          <div class="arrow next">
+            <span class="svg svg-arrow-right">
+              <svg version="1.1" id="svg5-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M1,0c0.256,0,0.512,0.098,0.707,0.293l12,12c0.391,0.391,0.391,1.023,0,1.414l-12,12c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414L11.586,13L0.293,1.707c-0.391-0.391-0.391-1.023,0-1.414C0.488,0.098,0.744,0,1,0z"/> </svg>
+              <span class="alt sr-only"></span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

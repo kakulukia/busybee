@@ -1,2 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;500;600&display=swap')
 
+.noCookieBanner
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 50px
+  width: 100%
+  position: fixed
+  bottom: 0
+  background: rgba(11, 19, 34, 0.8)
+  z-index: 77
+  transition: all 1s ease-in-out
+  padding: 0 30px
+
+  span.tag, a
+    color: rgb(255,212,0)
+    margin-left: 10px
+  .fa-close
+    color: rgb(255,212,0)
+    position: absolute
+    right: 15px
+    font-size: 20px
+    cursor: pointer
+    &:hover
+      color: white

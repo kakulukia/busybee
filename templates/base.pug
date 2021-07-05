@@ -128,6 +128,12 @@ body#top
           li(class={'active': anfrage})
             a(href="/jetzt-anfragen") Jetzt anfragen
 
+    .noCookieBanner(v-if="!cookieWasHere")
+      span Wir lieben Cookies - aber nur, wenn man sie essen kann!
+        a(href="/datenschutz") Unsere Datenschutzerklärung.
+        span.tag #SurfenOhneCookies
+      i.fa.fa-close(@click="hideCookieNotice")
+
   script.
     $(function () {
       $(document).ready(function() {
@@ -148,7 +154,30 @@ body#top
 
   // Buefy UI framework
   link(rel="stylesheet", href="//cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css")
-  Vue.use(Buefy.default)
+
+  -include 'pages/slideshow.html'
 
   -compress js
-     block extra_js
+    script.
+      Vue.use(Buefy.default)
+      let app = new Vue({
+        el: '#app',
+        data: {
+          cookieWasHere: false
+        },
+        methods: {
+          hideCookieNotice: function () {
+            localStorage.setItem('cookieNotice', "true")
+            this.cookieWasHere = true
+          }
+        },
+        created () {
+          value = localStorage.getItem('cookieNotice')
+          this.cookieWasHere = value === "true"
+        },
+      });
+      setTimeout(()=>{
+
+      })
+    block extra_js
+

@@ -1,36 +1,13 @@
+{% extends 'base.pug' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="de" class="js csstransforms3d sb-init sb-scroll-lock">
-<head>
+{% block title %} Busy Bee World {{ block.super }}{% endblock %}
+{% block extra_head %}
+  <link rel="canonical" href="https://www.busybee-catering.de/fingerfood">
+{% endblock %}
 
-    <title>Busy Bee World | BusyBee Catering Berlin</title>
-</head>
-<body id="top" class="">
-
-
-{% include 'pages/head.html' %}
-
-
-    <div id="sb-site" class="BusyBeeWorld" style="min-height: 916px;">        <header id="header">
-            <div id="logo">
-                <a href="/"><img src="{% static 'img/logo.png' %}" alt="BusyBee Catering Berlin"></a>
-            </div>
-            <div id="navbar">
-<ul class="navigation">            <li class="">
-                <a href="/">BEEourGuest
-                </a>
-            </li>            <li class="active">
-                <a href="/busy-bee-world">Busy Bee World
-                </a>
-            </li>            <li class="">
-                <a href="/jetzt-anfragen">Jetzt anfragen
-                </a>
-            </li></ul>
-
-                <span class="panel-activation sb-toggle-left navbar-left menu-btn fa fa-bars"></span>
-            </div>
-        </header>        <section id="body" class=""><h1>Busy Bee World</h1>
+{% block content %}
+<h1>Busy Bee World</h1>
 <h2>WIR sind Busy Bee Catering</h2>
 <div class="cont-2col">
 <div class="cell-2col-l">
@@ -146,122 +123,4 @@ neben der Liebe zum Genuss besonders der soziale, nachhaltige, verantwortungsbew
 <h2>Referenzen</h2>
 <p>Herzlichen Dank für Ihr Vertrauen. Auszug aus unserer Kundenliste (in alphabetischer Reihenfolge):</p>
 <p>Auswärtiges Amt, AMD TÜV GmbH, Berliner Bank AG &amp; Co. KG, Bundesarchitektenkammer, Bundesministerium der Verteidigung, Bundesamt für Bauwesen und Raumordnung, Bundesministerium für Bildung und Forschung, Bundesministerium für Familie, Senioren, Frauen und Jugend, Bundesministerium für Wirtschaft und Technologie, Bundesministerium für Verkehr, Bau und Stadtentwicklung, Botschaft von Kenia, Botschaft von Südafrika, Botschaft der Republik Singapur, Botschaft von Estland, CARE International Deutschland e.V., Charité Berlin, CinemaxX Cinema GmbH &amp; Co. KG, CineStar-Neue Filmpalast GmbH &amp; Co. KG, Commerzbank AG, CSD Berlin, Deutsche Akkreditierungsstelle GmbH, Deutsches Institut für Normung e.V., Deutsche Gesellschaft für Auswärtige Politik e.V., Deutsche Gesellschaft für Internationale Zusammenarbeit GmbH, DG Bank – Deutsche Genossenschaftsbank, Deutsche Kinder und Jugendstiftung GmbH, Deutsche Physikalische Gesellschaft im Magnushaus, DLR – Deutsches Zentrum für Luft- und Raumfahrt, Dräger Werke, E-Werk Berlin, Fraunhofer-Institut, Heinrich Böll Stiftung, Helios Kliniken, Helmholtz Zentrum, Humboldt Universität Berlin, Jüdisches Museum Berlin, Kodak GmbH, Robert Bosch Stiftung GmbH, Stiftung Denkmalschutz Berlin, TSB Innovationsagentur Berlin GmbH, T-Mobile Deutschland GmbH, Vertretung des Landes Mecklenburg-Vorpommern, Vertretung des Landes Brandenburg, Vertretung des Landes Sachsen, VDI-VDE-IT GmbH …</p>
-<hr><ul id="hexGrid">
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/inspiration">
-        <img src="{% static 'img/inspiration.jpg' %}">
-        <h6>Inspiration</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/fingerfood">
-        <img src="{% static 'img/ffood.jpg' %}">
-        <h6>Fingerfood</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/buffet-menue">
-        <img src="{% static 'img/buffet.jpg' %}">
-        <h6>Buffet &amp; Menü</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/busy-bee-world#unser-team">
-        <img src="{% static 'img/team.jpg' %}">
-        <h6>Unser Team</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/event-consulting">
-        <img src="{% static 'img/event_con.jpg' %}">
-        <h6>Event Consulting</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/office-lunch">
-        <img src="{% static 'img/office_lunch.jpg' %}">
-        <h6>Office Lunch</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/getraenke">
-        <img src="{% static 'img/getraenke.jpg' %}">
-        <h6>Getränke</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/full-service">
-        <img src="{% static 'img/full_service.jpg' %}">
-        <h6>Full Service</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
-  <li class="hex">
-    <div class="hexIn">
-      <a class="hexLink" href="/bio-und-allergene-welt">
-        <img src="{% static 'img/allergene.jpg' %}">
-        <h6>Bio &amp; Allergene Welt</h6>
-        <p>— view —</p>
-      </a>
-    </div>
-  </li>
- </ul>        </section>        <footer id="footer">
-            <div class="totop">
-                <span><a href="/busy-bee-world#" id="toTop"><i class="fa fa-arrow-up"></i></a></span>
-            </div>
-            <div id="footer1"><div style="text-align:center;padding-top: 2rem;">
-<p><a href="/kontakt">Kontakt</a> • <a href="/datenschutz">Datenschutz</a> • <a href="/impressum">Impressum</a> • <a href="/agb">AGB</a></p>
-</div>
-            </div>
-            <div id="footer2"><p style="font-size:0.2rem;">&nbsp;</p></div>
-        </footer>    </div>
-    <div class="sb-slidebar sb-left sb-width-thin">
-        <div id="panel">
-<ul class="navigation">            <li class="">
-                <a href="/">BEEourGuest
-                </a>
-            </li>            <li class="active">
-                <a href="/busy-bee-world">Busy Bee World
-                </a>
-            </li>            <li class="">
-                <a href="/jetzt-anfragen">Jetzt anfragen
-                </a>
-            </li></ul>
-
-        </div>
-    </div>
-        <script>
-        $(function () {
-            $(document).ready(function() {
-              $.slidebars({
-                hideControlClasses: true,
-                scrollLock: true
-              });
-            });
-        });
-        </script>
-
-</metaname="robots"content="nocache"></metaname="page-topic"content="catering></metaname="publisher"content="bbc></metaname="keywords"content="busy></metaname="description"content="busy></metaname="generator"content="gravcms"></body></html>
+{% endblock %}

@@ -18,15 +18,8 @@ server {
 
 }
 server {
-    if ($host = www.busybee-catering.de) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-
-	listen 80 default_server;
-	listen [::]:80 default_server;
-	server_name www.busybee-catering.de;
-    return 404; # managed by Certbot
-
-
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    server_name _;
+    return 301 https://www.busybee-catering.de$request_uri;
 }
