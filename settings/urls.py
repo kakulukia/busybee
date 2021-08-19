@@ -4,10 +4,10 @@ from django.contrib import admin
 from django.urls import path
 from django.views.decorators.csrf import csrf_exempt
 
-from sample_app.views import (BioView, BuffetView, ContactView, FingerView,
-                              ImprintView, IndexView, InspireView, PrivacyView,
-                              RequestView, ServiceView, TermsView, WorldView,
-                              DrinksView, LunchView, EventsView, ContactDoneView, RequestDoneView)
+from bee.views import (BioView, BuffetView, ContactView, FingerView,
+                       ImprintView, IndexView, InspireView, PrivacyView,
+                       RequestView, ServiceView, TermsView, WorldView,
+                       DrinksView, LunchView, EventsView, ContactDoneView, RequestDoneView)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

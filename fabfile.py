@@ -6,10 +6,10 @@ from fabric.colors import green
 
 env.shell = "/bin/zsh -c"
 
-APP_NAME = "app_name"
+APP_NAME = "busybee"
 
 env.path = f"/opt/www/{APP_NAME}"
-env.hosts = ['servername']
+env.hosts = ['busybee-catering.de']
 
 
 # # DEPLOYMENT TARGETS
@@ -37,7 +37,7 @@ def clear_cache():
     with cd(env.path):
         print(green("\ndeleting cache .."))
         manage("clear_cache")
-        manage("thumbnail clear_delete_all")
+        # manage("thumbnail clear_delete_all")
 
 
 def restart():
@@ -82,7 +82,7 @@ def update_static():
 
         print(green("compressing files .."))
         manage("compress -e pug,html --force")
-        manage("compilescss")
+        # manage("compilescss")
 
         print(green("collecting static files .."))
         manage("collectstatic --noinput")

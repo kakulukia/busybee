@@ -3,9 +3,11 @@ from time import time
 
 from captcha.fields import CaptchaField
 from django import forms
+from django.core.exceptions import ValidationError
 from django.shortcuts import redirect
 from django.views.generic import TemplateView, FormView
 
+from bee.models import EmailLog
 from users.models import User
 
 
@@ -27,6 +29,25 @@ class ContactForm(forms.Form):
     email = forms.EmailField(label="E-Mail", label_suffix="")
     message = forms.CharField(widget=forms.Textarea, label="Nachricht", label_suffix="")
     captcha = CaptchaField(label_suffix="")
+
+    def clean(self):
+        data = self.cleaned_data
+        message = data['message']
+
+        if 'http' in message or 'https' in message:
+            # this message is considered as spam but will lbe saved in the email logs as reference
+
+            EmailLog.data.create(
+                name=data['name'],
+                email=data['email'],
+                message=data['message']
+            )
+
+            raise ValidationError(
+                'Bei der Verarbeitung ist ein Fehler aufgetreten, bitte versuchen Sie es später noch einmal.'
+            )
+
+        return data
 
 
 class ContactView(FormView):

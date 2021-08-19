@@ -21,6 +21,7 @@ ALLOWED_HOSTS = [
 INSTALLED_APPS = [
     # our own stuff
     "users",
+    'bee',
     # Django
     "django.contrib.admin",
     "django.contrib.auth",
