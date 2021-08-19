@@ -1,33 +1,14 @@
+{% extends 'base.pug' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="de" class="js csstransforms3d sb-init sb-scroll-lock">
-<head>
-    <title>Buffet &amp; Menü | BusyBee Catering Berlin</title>
-    <link rel="canonical" href="https://www.busybee-catering.de/buffet-menue">
-    {% include 'pages/head.html' %}
-</head>
-<body id="top" class="">
+{% block title %} Buffet &amp; Menü {{ block.super }}{% endblock %}
+{% block extra_head %}
+  <link rel="canonical" href="https://www.busybee-catering.de/buffet-menue">
+{% endblock %}
 
-    <div id="sb-site" class="BuffetMen" style="min-height: 916px;">        <header id="header">
-            <div id="logo">
-                <a href="/"><img src="{% static 'img/logo.png' %}" alt="BusyBee Catering Berlin"></a>
-            </div>
-            <div id="navbar">
-<ul class="navigation">            <li class="">
-                <a href="/">BEEourGuest
-                </a>
-            </li>            <li class="">
-                <a href="/busy-bee-world">Busy Bee World
-                </a>
-            </li>            <li class="">
-                <a href="/jetzt-anfragen">Jetzt anfragen
-                </a>
-            </li></ul>
+{% block content %}
 
-                <span class="panel-activation sb-toggle-left navbar-left menu-btn fa fa-bars"></span>
-            </div>
-        </header>        <section id="body" class=""><h1>Buffet &amp; Men<span class="sz2">ü</span></h1>
+<h1>Buffet &amp; Men<span class="sz2">ü</span></h1>
 <h2>Regionale Produkte international verfeinern</h2>
 <div class="cont-2col">
 <div class="cell-2col-l">
