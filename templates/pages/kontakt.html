@@ -38,11 +38,13 @@ Bürozeiten: 09:00-17:00 Uhr Montag-Freitag</p>
 <form name="kontakt" action="/kontakt" method="POST" id="kontakt">
   {{ form }}
   <br clear="both">
+  <br>
   <input type="checkbox" id="agree" required="true"></checkbox>
-  <label class="checkbox" for="agree">
-    Ich stimme den
-    <a href="/datenschutz" target="_blank">Datenschutzbestimmungen</a> zu
+  <label class="checkbox agree" for="agree">
+    Ja, ich willige in die Verarbeitung meiner personenbezogenen Daten gemäß den
+    <a href="/datenschutz" target="_blank">Datenschutzbestimmungen</a> ein und möchte, dass meine Daten an BusyBee übermittelt werden.
   </label>
+  <br clear="both">
   <div class="buttons">
     <button class="button" type="submit">Absenden</button>
     <button class="button" type="reset">Zurücksetzen</button>
