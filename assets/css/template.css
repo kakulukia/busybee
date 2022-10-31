@@ -1,4 +1,16 @@
-@import url(//fonts.googleapis.com/css?family=Montserrat:400|Raleway:300,400,600|Inconsolata);
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/static/fonts/Montserrat.ttf');
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('/static/fonts/Raleway.ttf');
+  font-style: normal;
+  font-stretch: normal;
+}
+
 #header #logo h3,
 #header #navbar .panel-activation,
 #footer p {
@@ -427,7 +439,7 @@ select,
 textarea,
 .pure-g,
 .pure-g [class*="pure-u"] {
-  font-family: "Raleway", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
 }
 
