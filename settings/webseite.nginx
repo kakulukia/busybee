@@ -23,3 +23,9 @@ server {
     server_name ~^(.*)busybee-catering.de;
     return 301 https://www.busybee-catering.de$request_uri;
 }
+
+server {
+    listen      80 default_server;
+    server_name _;
+    return      444;
+}
