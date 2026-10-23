@@ -1,51 +1,58 @@
-[tool.poetry]
-name = "django_default_project"
+[project]
+name = "django-default-project"
 version = "0.8.0"
 description = "Its not always good to start from scratch .. lets have some sane defaults .."
-authors = ["Andy Grabow <andy@freilandkiwis.de>"]
+authors = [{name = "Andy Grabow", email = "andy@freilandkiwis.de"}]
 license = "MIT"
-readme = 'README.md'
+readme = "README.md"
+requires-python = ">=3.15"
+dependencies = [
+    "django>=6.1.2,<6.2",
+    "django-secrets>=3.0.5,<4",
+    "django-undeletable>=1.1.2,<2",
+    "django-extensions>=4.1,<5",
+    "dj-static>=0.0.6,<0.1",
+    "django-compressor>=4.6.0,<5",
+    "django-axes>=8.3.1,<9",
+    "django-libsass>=0.9,<1",
+    "pypugjs>=7.0.0,<8",
+    "django-post-office>=3.12.0,<4",
+    "uwsgidecorators>=1.1.0,<2",
+    "huepy>=1.2.1,<2",
+    "djangorestframework>=3.18.3,<4",
+    "requests>=2.34.2,<3",
+    "pendulum>=3.3.0,<4",
+    "pillow>=13.0.0,<14",
+    "libsass>=0.23.0,<1",
+    "icecream>=2.2.0,<3",
+    "bleach>=6.4.0,<7",
+    "django-simple-captcha>=0.7.0,<1",
+    "uwsgi>=2.0.31,<3",
+]
 
-repository = "https://github.com/kakulukia/django-default-project"
-homepage = "https://github.com/kakulukia/django-default-project"
+[project.urls]
+Repository = "https://github.com/kakulukia/django-default-project"
+Homepage = "https://github.com/kakulukia/django-default-project"
 
-[tool.poetry.dependencies]
-django = "^3.0"
-django-secrets = "^1.0.2"
-django-undeletable = "^1.1.0"
-django-extensions = "^3.1.1"
-dj-static = "^0.0.6"
-django-compressor = "^2.4"
-django-axes = "^5.2.0"
-django-libsass = "^0.8"
-pypugjs = "^5.8.1"
-django-post-office = "^3.2.1"
-uwsgidecorators = "^1.1.0"
-huepy = "^1.2.1"
-djangorestframework = "^3.11.0"
-requests = "^2.22.0"
-pendulum = "^2.0.5"
-Pillow = "^8.1.2"
-libsass = "^0.20.1"
-python = "^3.9"
-Django = "^3.2.3"
-icecream = "^2.1.0"
-bleach = "^3.3.0"
-django-simple-captcha = "^0.5.14"
-uWSGI = "^2.0.19"
+[dependency-groups]
+dev = [
+    "django-debug-toolbar>=8.0.0,<9",
+    "django-livereload-server>=0.5.1,<1",
+    "ruff>=0.17.2,<0.18",
+    "ipdb>=0.13.13,<1",
+    "fab-classic>=1.21.0,<2",
+]
 
-[tool.poetry.dev-dependencies]
-black = "^19.10b0"
-django-debug-toolbar = "^3.2"
-django-livereload-server = "^0.3.2"
-flake8 = "^3.7.9"
-ipdb = "^0.13.6"
-djdt-flamegraph = "^0.2.12"
-Fabric3 = "^1.14.post1"
+[tool.uv]
+package = false
 
-[tool.black]
+[tool.ruff]
 line-length = 90
+extend-exclude = ["**/migrations/**"]
+force-exclude = true
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "W605", "E501"]
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 140

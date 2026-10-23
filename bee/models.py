@@ -9,5 +9,5 @@ class EmailLog(BaseModel):
     message = models.TextField()
 
     class Meta(BaseModel.Meta):
-        verbose_name = 'SpamLog'
-        verbose_name_plural = 'SpamLogs'
+        verbose_name = "SpamLog"
+        verbose_name_plural = "SpamLogs"

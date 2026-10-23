@@ -2,7 +2,7 @@ from .common import *  # noqa
 
 DEBUG = True
 
-ALLOWED_HOSTS += ["localhost", "127.0.0.1", "0.0.0.0"]
+ALLOWED_HOSTS += ["localhost", "127.0.0.1", "0.0.0.0"]  # noqa: F405
 
 INSTALLED_APPS += [  # noqa
     # debugging
@@ -21,9 +21,8 @@ DEBUG_TOOLBAR_PANELS = (
     "debug_toolbar.panels.templates.TemplatesPanel",
     "debug_toolbar.panels.cache.CachePanel",
     "debug_toolbar.panels.signals.SignalsPanel",
-    "debug_toolbar.panels.logging.LoggingPanel",
     "debug_toolbar.panels.redirects.RedirectsPanel",
-    "djdt_flamegraph.FlamegraphPanel",  # needs --nothreading --noreload
+    "debug_toolbar.panels.profiling.ProfilingPanel",
 )
 
 DEBUG_TOOLBAR_CONFIG = {
@@ -38,9 +37,8 @@ DEBUG_TOOLBAR_CONFIG = {
         "debug_toolbar.panels.templates.TemplatesPanel",
         "debug_toolbar.panels.cache.CachePanel",
         "debug_toolbar.panels.signals.SignalsPanel",
-        "debug_toolbar.panels.logging.LoggingPanel",
         "debug_toolbar.panels.redirects.RedirectsPanel",
-        "djdt_flamegraph.FlamegraphPanel",
+        "debug_toolbar.panels.profiling.ProfilingPanel",
     )
 }
 
@@ -54,6 +52,4 @@ INTERNAL_IPS = ALLOWED_HOSTS
 # unset raven config to not not flood it while developing
 RAVEN_CONFIG = {}
 
-POST_OFFICE = {
-    "BACKENDS": {"default": "django.core.mail.backends.console.EmailBackend"}
-}
+POST_OFFICE = {"BACKENDS": {"default": "django.core.mail.backends.console.EmailBackend"}}

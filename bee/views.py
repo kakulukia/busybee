@@ -4,6 +4,7 @@ from time import time
 from captcha.fields import CaptchaField
 from django import forms
 from django.core.exceptions import ValidationError
+from django.http import HttpResponseBadRequest
 from django.shortcuts import redirect
 from django.views.generic import TemplateView, FormView
 
@@ -16,12 +17,12 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['guest'] = True
+        data["guest"] = True
         return data
 
 
 class ContactDoneView(TemplateView):
-    template_name = 'pages/kontakt-danke.html'
+    template_name = "pages/kontakt-danke.html"
 
 
 class ContactForm(forms.Form):
@@ -31,20 +32,20 @@ class ContactForm(forms.Form):
     captcha = CaptchaField(label_suffix="")
 
     def clean(self):
-        data = self.cleaned_data
-        message = data['message']
+        data = super().clean()
+        if self.errors:
+            return data
+        message = data["message"]
 
-        if 'http' in message or 'https' in message:
-            # this message is considered as spam but will lbe saved in the email logs as reference
+        if "http" in message or "https" in message:
+            # Keep rejected spam for reference.
 
             EmailLog.data.create(
-                name=data['name'],
-                email=data['email'],
-                message=data['message']
+                name=data["name"], email=data["email"], message=data["message"]
             )
 
             raise ValidationError(
-                'Bei der Verarbeitung ist ein Fehler aufgetreten, bitte versuchen Sie es später noch einmal.'
+                "Bei der Verarbeitung ist ein Fehler aufgetreten, bitte versuchen Sie es später noch einmal."
             )
 
         return data
@@ -53,16 +54,16 @@ class ContactForm(forms.Form):
 class ContactView(FormView):
     template_name = "pages/kontakt.html"
     form_class = ContactForm
-    success_url = '/kontakt-danke'
+    success_url = "/kontakt-danke"
 
     def form_valid(self, form):
         user = User.data.get(username="EMAIL")
         content = {
-            'Name': form.cleaned_data['name'],
-            'E-Mail': form.cleaned_data['email'],
-            'Nachricht': form.cleaned_data['message'],
+            "Name": form.cleaned_data["name"],
+            "E-Mail": form.cleaned_data["email"],
+            "Nachricht": form.cleaned_data["message"],
         }
-        user.email_user('kontakt', {'content': content})
+        user.email_user("kontakt", {"content": content})
         return super().form_valid(form)
 
 
@@ -70,50 +71,74 @@ def extract_form_data(request_data):
     content = {}
 
     options = {
-        'Anrede': {'1': 'Frau', '2': 'Herr'},
-        'Fingerfood': {'1': 'Kalt', '2': 'Kalt-Warm', '3': 'Gabelbissen'},
-        'Office Lunch': {'1': 'Kaltes Fingerfood', '2': 'Suppe + Fingerfood', '3': 'Salat + Hauptgang + Dessert'},
-        'Buffet': {'1': 'Kalt', '2': 'Warm', '3': 'Kalt-Warm'},
-        'Menue': {'1': '3 Gänge', '2': '4 Gänge', '3': '5-6 Gänge'},
-        'Speisen': {'1': 'Rustikal / Deutsch', '2': 'Mediterran', '3': 'International'},
-        'Budget': {'1': '10,00 - 15,00 Euro', '2': '15,01 - 20,00 Euro', '3': '20,01 - 25,00 Euro', '4': 'ab 25,00 Euro'},
-        'Getraenke': {'0': 'nein', '1': 'ja'},
-        'Personal': {'0': 'nein', '1': 'ja'},
-        'Fingerfood Extra': {'0': 'Schnittchen', '1': 'Canapes', '2': 'Halbes Brötchen'},
-        'Speisen Extra': {'0': 'Vegetarisch', '1': 'Bio'},
-        'Getraenke Extra': {'0': 'Erfrischungsgetränke', '1': 'Alkoholische Getränke',
-                            '2': 'Heißgetränke', '3': 'Bio', '4': 'Fair Trade'},
-        'Ausstattung': {'0': 'Geschirr / Besteck', '1': 'Gläser', '2': 'Buffetbereitstellung',
-                        '3': 'Tischwäsche', '4': 'Tische / Bestuhlung', '5': 'Blumen',
-                        '6': 'Dekoration', '7': 'Zelte'},
-        'Zusendung Angebot': {'0': 'E-Mail', '1': 'Post', '2': 'Fax'},
-        'Gefunden': {'0': 'Webseite', '1': 'Suchmaschine', '2': 'Empfehlung', '3': 'Kunde / Kundin'}
+        "Anrede": {"1": "Frau", "2": "Herr"},
+        "Fingerfood": {"1": "Kalt", "2": "Kalt-Warm", "3": "Gabelbissen"},
+        "Office Lunch": {
+            "1": "Kaltes Fingerfood",
+            "2": "Suppe + Fingerfood",
+            "3": "Salat + Hauptgang + Dessert",
+        },
+        "Buffet": {"1": "Kalt", "2": "Warm", "3": "Kalt-Warm"},
+        "Menue": {"1": "3 Gänge", "2": "4 Gänge", "3": "5-6 Gänge"},
+        "Speisen": {"1": "Rustikal / Deutsch", "2": "Mediterran", "3": "International"},
+        "Budget": {
+            "1": "10,00 - 15,00 Euro",
+            "2": "15,01 - 20,00 Euro",
+            "3": "20,01 - 25,00 Euro",
+            "4": "ab 25,00 Euro",
+        },
+        "Getraenke": {"0": "nein", "1": "ja"},
+        "Personal": {"0": "nein", "1": "ja"},
+        "Fingerfood Extra": {"0": "Schnittchen", "1": "Canapes", "2": "Halbes Brötchen"},
+        "Speisen Extra": {"0": "Vegetarisch", "1": "Bio"},
+        "Getraenke Extra": {
+            "0": "Erfrischungsgetränke",
+            "1": "Alkoholische Getränke",
+            "2": "Heißgetränke",
+            "3": "Bio",
+            "4": "Fair Trade",
+        },
+        "Ausstattung": {
+            "0": "Geschirr / Besteck",
+            "1": "Gläser",
+            "2": "Buffetbereitstellung",
+            "3": "Tischwäsche",
+            "4": "Tische / Bestuhlung",
+            "5": "Blumen",
+            "6": "Dekoration",
+            "7": "Zelte",
+        },
+        "Zusendung Angebot": {"0": "E-Mail", "1": "Post", "2": "Fax"},
+        "Gefunden": {
+            "0": "Webseite",
+            "1": "Suchmaschine",
+            "2": "Empfehlung",
+            "3": "Kunde / Kundin",
+        },
     }
 
-    labels = {'Zusendung Angebot': 'Ich wünsche die Zusendung des Angebots per',
-              'Budget Gesamt': 'Gesamtbudget netto',
-              'Budget': 'Budget netto für Speisen pro Person',
-              'Email': 'E-Mail',
-              'Gefunden': 'Wie sind Sie zu uns gekommen?',
-              }
+    labels = {
+        "Zusendung Angebot": "Ich wünsche die Zusendung des Angebots per",
+        "Budget Gesamt": "Gesamtbudget netto",
+        "Budget": "Budget netto für Speisen pro Person",
+        "Email": "E-Mail",
+        "Gefunden": "Wie sind Sie zu uns gekommen?",
+    }
 
     for key in request_data.keys():
-        if key.startswith('data['):
-            nice_key = re.sub(r'data\[(.*?)].*', r'\1', key).title()
-            nice_key = re.sub('_', ' ', nice_key)
+        if key.startswith("data["):
+            nice_key = re.sub(r"data\[(.*?)].*", r"\1", key).title()
+            nice_key = re.sub("_", " ", nice_key)
             real_key = labels.get(nice_key, nice_key)
             value = request_data[key]
 
-            if value == '':
+            if not value.strip():
                 continue
 
             if value.isdigit() and options.get(nice_key):
-                if nice_key not in options:
-                    raise ValueError(f'hier fehlen noch Optionen für {nice_key}')
-
                 value = options[nice_key][value]
-            if '][' in key and content.get(real_key):
-                content[real_key] += f', {value}'
+            if "][" in key and content.get(real_key):
+                content[real_key] += f", {value}"
             else:
                 content[real_key] = value
     return content
@@ -124,7 +149,7 @@ class WorldView(TemplateView):
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['world'] = True
+        data["world"] = True
         return data
 
 
@@ -132,25 +157,34 @@ class RequestView(TemplateView):
     template_name = "pages/anfrage.html"
 
     def post(self, request):
-        user = User.data.get(username="EMAIL")
-        content = extract_form_data(request.POST)
+        try:
+            start = int(request.POST.get("form-nonce", ""))
+            content = extract_form_data(request.POST)
+        except ValueError, KeyError:
+            content = {}
+
+        if not content:
+            return HttpResponseBadRequest(
+                "Die Anfrage ist leer oder ungültig. Bitte laden Sie das Formular neu und prüfen Sie Ihre Angaben.",
+                content_type="text/plain; charset=utf-8",
+            )
 
         # spam detection
-        start = int(request.POST['form-nonce'])
         finish = int(time())
-        spam = '(SPAM?)' if finish < start + 60 else ''
+        spam = "(SPAM?)" if finish < start + 60 else ""
 
-        user.email_user('anfrage', {'content': content, 'spam': spam})
-        return redirect('/jetzt-anfragen-danke')
+        user = User.data.get(username="EMAIL")
+        user.email_user("anfrage", {"content": content, "spam": spam})
+        return redirect("/jetzt-anfragen-danke")
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
-        data['anfrage'] = True
+        data["anfrage"] = True
         return data
 
 
 class RequestDoneView(TemplateView):
-    template_name = 'pages/anfragen-danke.html'
+    template_name = "pages/anfragen-danke.html"
 
 
 class PrivacyView(TemplateView):

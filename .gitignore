@@ -9,3 +9,5 @@ dump.rdb
 .venv
 static
 .direnv
+
+.ruff_cache/

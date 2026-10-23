@@ -1,5 +1,3 @@
-
-import os
 from pathlib import Path
 
 from pypugjs.ext.django.compiler import enable_pug_translations
@@ -8,20 +6,20 @@ from my_secrets import secrets
 
 enable_pug_translations()
 
-BASE_DIR = Path.cwd()
+BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = secrets.SECRET_KEY
 SITE_ID = 1
 
 DEBUG = False
 ALLOWED_HOSTS = [
-    '445a032.online-server.cloud',
-    '*.busybee-catering.de',
-    'www.busybee-catering.de',
+    "445a032.online-server.cloud",
+    "*.busybee-catering.de",
+    "www.busybee-catering.de",
 ]
 INSTALLED_APPS = [
     # our own stuff
     "users",
-    'bee',
+    "bee",
     # Django
     "django.contrib.admin",
     "django.contrib.auth",
@@ -46,11 +44,11 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    'axes.middleware.AxesMiddleware',
+    "axes.middleware.AxesMiddleware",
 ]
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'axes.backends.AxesBackend',
+    "axes.backends.AxesStandaloneBackend",
+    "django.contrib.auth.backends.ModelBackend",
 ]
 TEMPLATES = [
     {
@@ -109,17 +107,14 @@ CACHES = {
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
-AXES_LOGIN_FAILURE_LIMIT = 2
+AXES_FAILURE_LIMIT = 2
 AXES_CACHE = "axes_cache"
-AXES_USE_USER_AGENT = True
-AXES_LOCK_OUT_BY_COMBINATION_USER_AND_IP = True
+AXES_LOCKOUT_PARAMETERS = [["username", "ip_address", "user_agent"]]
 
 
 # Internationalization
@@ -127,7 +122,6 @@ AXES_LOCK_OUT_BY_COMBINATION_USER_AND_IP = True
 LANGUAGE_CODE = "de-de"
 TIME_ZONE = "CET"
 USE_I18N = True
-USE_L10N = True
 USE_TZ = True
 
 
@@ -156,4 +150,4 @@ EMAIL_HOST_PASSWORD = secrets.EMAIL_PASSWORD
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
-DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"

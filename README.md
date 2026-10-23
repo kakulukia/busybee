@@ -1,109 +1,86 @@
-# django-default-project
+# Busy Bee Catering
 
-#### Django
+Django website with Pug templates, Sass styles and checked-in frontend assets.
+Python dependencies are managed with [uv](https://docs.astral.sh/uv/).
 
-This is meant as a base template for new Django projects which uses poetry to manage its 3rd party packages. 
-The project comes preconfigured for those packages:
-  
-    [packages]
-    django = "*"
-    django-secrets = "*"
-    django-undeletable = "*"
-    django-extensions = "*"
-    dj-static = "*"
-    django-compressor = "*"
-    django-axes = "*"
-    django-libsass = "*"
-    raven = "*"
-    pypugjs = "*"
-    django-post-office = "*"
-    uwsgidecorators = "*"
-    requests = "*"
-    pendulum = "*"
-    djangorestframework = "*"
-    
-    [dev-packages]
-    black = "*"
-    django-debug-toolbar = "*"
-    django-livereload-server = "*"
-    "flake8" = "*"
-    fabric = "*"
-    ipdb = "*"
-    djdt-flamegraph = "*"
+## Local setup
 
-Furthermore this project template includes a hello world with PUG templates, SASS styles and VueJS
-showing off a minimal reactive page featuring [chuck norris facts](https://api.chucknorris.io) which made me click reload a few dozen 
-times while coding this example app. :P
+Install the current version of uv, then run from the project directory:
 
-#### Frontend
+```sh
+uv sync --locked
+uv run python manage.py migrate --settings=settings.dev
+uv run python manage.py runserver --settings=settings.dev
+```
 
-Here is a list of whats installed for the frontend:
+The project requires Python 3.15 or newer and uses Python 3.15.1 by default, as
+specified in `.python-version`. uv downloads the interpreter when needed and
+creates `.venv`. Native dependencies such as uWSGI require a C compiler and the
+platform development headers. On macOS, install the Xcode command line tools.
 
-  - [VueJS](https://vuejs.org/v2/guide/) - the base JS framework  
-  - [ravenJS](https://docs.sentry.io/quickstart/) - error reporting for the frontend
-  - [lodash](https://lodash.com/docs/4.17.5) - the missing javascript functions
-  - [axios](https://github.com/axios/axios) - AJAX calls
-  - [Buefy](https://buefy.github.io/#/documentation/start) - VueJs UI framework 
-  mirroring all [Bulma](https://bulma.io/documentation/columns/basics/) features including 
-  [Material Design Icons](https://materialdesignicons.com/)
-  
-This is only recommended as long as you only want to spice up your pages with a lil reactivity, tho. 
-In case you want to build a more complex frontend, please consider using the Django rest framework and
-and start building a dedicated frontend with `vue ui` ([more detailed instructions here](https://cli.vuejs.org/)).
-For smaller projects it has proven to be more efficient to have the frontend checked in as a subfolder in the
-backend repo so that you always have the matching backend and frontend code together without messing with 
-version conflicts
+When migrating an existing checkout, remove the old `.venv` symlink before the
+first sync. The old `.direnv` environment can then be removed when no longer
+needed.
 
-#### Settings
-  
-Contrary to Django the project has a flat settings hierarchy so you can do the following:
+`manage.py` prompts for missing secrets defined in `my_secrets/definitions.py`.
+Values are stored in the ignored `my_secrets/secrets.py`; keep that file private.
+The development settings use a console email backend.
 
- 1. Alice and Bob set an environment var pointing to their own settings like "settings.bob"
- 2. When starting a new project they just have to copy setting/dev.py and change it to their liking
- 3. When switching and working on multiple projects, everybody can have their own setting checked into the 
- project and automatically using em without the need to remember to activate "<project_name>.settings.whatever" 
- (influenced by the really cool TwoScoops of Django)
- 
- Django-secrets will keep your secrets really secret and help you with your deployment so that you only 
- need to initialize your secret environment variables. Also works super easy with i.e. Travis CI.
- 
- All assets and templates are stored in their top level folders .. yes i know its not portable that way, but most of 
- the times i don't build portable apps. I create projects that are meant to be be running at customers and never 
- see the public light and thus they shall be clean without the need to remember which assets are hidden in which subfolders.
- The styles.sass in compiled on the fly and thanks to the wonderful livereload-server changes will be visible right away in
- you browser (as well as code changes to python files).
- 
- Once the settings file is fed with the needed credentials all errors (python and javascript) will be caught by 
- Sentry.io for error handling. 
- 
- #### Clean Code
- 
- misc/setup_repo.sh will setup the current repo with a flake8 commit hook to always commit clean code only. :D
- 
- #### Static Files
- 
- wsgi.py is patched with the awesome dj-static lib so you don't necessarily need to remember to serve static 
- files separately unless you really want to.
- 
- #### One more thing: fabfile
-  
-The project template features a ready to use fabfile which will grant you some basic tasks like:
- 
-   - _fab deploy_ which will push your content and restart uwsgi
-   - _fab migrate_ which will push updates, updating packages, migrating the DB, compressing files, collecting 
-   static files and finally restart the server for you.
-   
- Hope i didn't forget any gem inside .. have fun with this project template!
- 
-## Installation
+If you use direnv, `direnv allow` activates `.venv`, syncs the locked dependencies
+and defaults to `settings.dev`, preserving an existing `DJANGO_SETTINGS_MODULE`.
+Otherwise, pass `--settings=settings.dev` as above or set
+`DJANGO_SETTINGS_MODULE=settings.dev`. Personal settings can inherit from
+`settings.dev`, as `settings.andy` does.
 
-    django-admin.py startproject \
-    --template=https://github.com/kakulukia/django-default-project/zipball/master \
-    <new project name here>
-    
-    cd <repeat the new project name>
-    
-    poetry install
+## Dependencies and checks
 
-PS: You need [poetry](https://github.com/sdispater/poetry) to install this projects requirements.
-You can `pip install poetry` if yo dont have it already. I really tried pipenv, but it let me down so many times now.
+```sh
+uv add package-name
+uv add --dev package-name
+uv lock --upgrade
+uv sync --locked
+uv run python manage.py check --settings=settings.dev
+uv run python manage.py test --settings=settings.dev
+uv run python manage.py makemigrations --check --dry-run --settings=settings.dev
+uv pip check
+uv run ruff check .
+uv run ruff format --check .
+```
+
+Commit `pyproject.toml`, `.python-version` and `uv.lock` together when dependencies
+change. `uv sync` includes the development group. Production installations use
+`uv sync --locked --no-dev`.
+
+The debug toolbar uses its built-in profiling panel instead of the obsolete
+`djdt-flamegraph` extension. Enable the profiling panel in the toolbar when needed
+and run the development server with `--nothreading --noreload` for profiling.
+
+Ruff handles linting and formatting. Run `uv run ruff format .` to format files.
+Formatting targets 90 columns; linting permits up to 140 columns for lines that
+cannot be wrapped. Generated migrations are excluded.
+
+`bash misc/setup_repo.sh` installs an optional Ruff pre-commit hook for staged
+Python files. It checks lint and formatting without modifying or staging files.
+It leaves existing hooks in place and reports when manual integration is required.
+
+## Deployment
+
+The deployment tasks use `fab-classic` and uv, preserving the Fabric 1 API:
+
+```sh
+uv run fab --list
+uv run fab migrate
+```
+
+`migrate` pulls the repository on the configured host, installs production
+dependencies from `uv.lock`, applies database migrations, compresses and collects
+static files, and restarts the PM2 process. These commands change the live system;
+run them only as part of an approved deployment.
+
+The server needs uv on its noninteractive shell's `PATH`, a supported Python
+interpreter or access to uv's Python downloads, and build tools for uWSGI.
+Replace any existing Poetry or pyenv `.venv` symlink before the first uv sync.
+`settings/busybee.sh` starts uWSGI through uv from the project root.
+
+The frontend libraries and CDN references are maintained separately from the
+Python dependencies.
