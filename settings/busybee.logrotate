@@ -1,0 +1,9 @@
+/home/andy/.pm2/logs/busybee-out.log /home/andy/.pm2/logs/busybee-error.log {
+    su andy andy
+    daily
+    rotate 14
+    compress
+    missingok
+    notifempty
+    copytruncate
+}

@@ -82,5 +82,18 @@ interpreter or access to uv's Python downloads, and build tools for uWSGI.
 Replace any existing Poetry or pyenv `.venv` symlink before the first uv sync.
 `settings/busybee.sh` starts uWSGI through uv from the project root.
 
+The production log rotation rule is stored in `settings/busybee.logrotate`.
+Install it on the server with:
+
+```sh
+sudo install -o root -g root -m 0644 \
+  /opt/www/busybee/settings/busybee.logrotate /etc/logrotate.d/busybee
+sudo logrotate --debug /etc/logrotate.d/busybee
+```
+
+The existing daily `logrotate.timer` processes this rule. It keeps 14 compressed
+archives per Busybee log and skips empty or missing files. `copytruncate` keeps
+logging active without restarting PM2 or the application.
+
 The frontend libraries and CDN references are maintained separately from the
 Python dependencies.
